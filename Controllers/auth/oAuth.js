@@ -7,5 +7,5 @@ exports.googleCallback = (req, res) => {
             secure: true,
             sameSite: "None",
             maxAge: 7 * 24 * 60 * 60 * 1000
-        }).redirect("http://localhost:5173/");
+        }).redirect("https://convo-hub-frontend-three.vercel.app");
 };
