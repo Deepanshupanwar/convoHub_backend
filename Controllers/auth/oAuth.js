@@ -3,10 +3,18 @@ const jwt = require("jsonwebtoken");
 exports.googleCallback = (req, res) => {
     const { user, token } = req.user;
     res.cookie("convoHub", token, {
-            httpOnly: true,
-            secure: true,
-            sameSite: "None",
-            maxAge: 7 * 24 * 60 * 60 * 1000
-        })
-    res.redirect("https://convo-hub-frontend-three.vercel.app");
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    })
+    res.send(`
+  <html>
+    <body>
+      <script>
+        window.location.href = "https://convo-hub-frontend-three.vercel.app";
+      </script>
+    </body>
+  </html>
+`)
 };
