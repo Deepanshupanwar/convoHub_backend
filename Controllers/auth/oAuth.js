@@ -6,7 +6,6 @@ exports.googleCallback = (req, res) => {
             httpOnly: true,
             secure: true,
             sameSite: "None",
-            domain: ".vercel.app",
             maxAge: 7 * 24 * 60 * 60 * 1000
         }).redirect("https://convo-hub-frontend-three.vercel.app");
 };
