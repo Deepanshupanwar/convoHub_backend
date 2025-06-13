@@ -3,7 +3,7 @@ const User = require("../Models/userModels");
 
 exports.Verify = async (req,res,next)=>{
     try{
-        const token = req.cookies["convoHub"];
+        const token = req.cookies["convoHub"] ||  req.headers.authorization?.split(" ")[1];
         if(!token) return res.status(401).json({message: "Unauthorized"});
         jwt.verify(token,process.env.JWT_SECRET,async function(err, decoded){
             if(err){
