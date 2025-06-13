@@ -5,16 +5,9 @@ exports.googleCallback = (req, res) => {
     res.cookie("convoHub", token, {
         httpOnly: true,
         secure: true,
-        sameSite: "None",
+        sameSite: "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
-    res.send(`
-  <html>
-    <body>
-      <script>
-        window.location.href = "https://convo-hub-frontend-three.vercel.app";
-      </script>
-    </body>
-  </html>
-`)
+    res.redirect("https://convo-hub-frontend-three.vercel.app")
+    
 };
